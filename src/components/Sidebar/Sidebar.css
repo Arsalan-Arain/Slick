@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: aqua;
+  background-color: #FFFFFF;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
@@ -15,9 +15,55 @@
   /* background-color: bisque; */
   justify-content: center;
   align-items: center;
+  margin-bottom: 2.5rem;
 }
 
 .HeaderHeight img {
   height: 3rem;
-  width: 125px7.8125rem;
+  width: 7.8125rem;
+}
+
+.Sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Sidebar li {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: auto;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.Sidebar a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: #8A8FA1;
+  margin-left: 0.75rem;
+}
+
+/* .Sidebar li:hover a, .Sidebar:active a, .Sidebar a.active {
+  color: #6F8AE8;
+  font-weight: 600;
+} */
+
+.Sidebar a:hover, 
+.Sidebar a:active, 
+.Sidebar a.active {
+  color: #6F8AE8;
+  font-weight: 600;
+}
+
+.Sidebar .Banner {
+  width: 100%;
+  /* background-color: red; */
+}
+
+.Sidebar .Banner img {
+  width: 100%;
+  vertical-align: middle;
 }

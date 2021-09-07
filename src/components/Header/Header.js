@@ -11,7 +11,7 @@ const header = (props) => {
         <p id={cssClasses.Heading}>{props.heading}</p>
       </div>
       <div className={cssClasses.HeaderHeight.concat(" ", cssClasses.Notification)}>
-        <img src={notificationIcon} style={{width: "1.25rem", margin: "auto"}}/>
+        <img src={notificationIcon} alt="bell" style={{width: "1.25rem", margin: "auto"}}/>
       </div>
     </div>
   );
