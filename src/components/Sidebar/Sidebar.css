@@ -1,0 +1,23 @@
+.Sidebar {
+  width: 18.75%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: aqua;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.HeaderHeight {
+  display: flex;
+  height: 4rem;
+  /* background-color: bisque; */
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderHeight img {
+  height: 3rem;
+  width: 125px7.8125rem;
+}

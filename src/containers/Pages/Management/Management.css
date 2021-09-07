@@ -1,0 +1,9 @@
+.Management {
+    width: calc(100% - 18.75%);
+    min-height: 100vh;
+    background-color: burlywood;
+    /* background-color: #F5F8FC; */
+    margin-left: 18.75%;
+    padding: 32px 40px;
+    box-sizing: border-box;
+}
