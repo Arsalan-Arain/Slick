@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import cssClasses from './Sidebar.css';
+import classes from './Sidebar.css';
 import logo from '../../assets/slick-logo.png';
 import homeIcon from '../../assets/home-icon.svg';
 import analyticsIcon from '../../assets/analytics-icon.svg';
@@ -14,8 +14,8 @@ const sidebar = (props) => {
     fontWeight: '600'
   }
   return (
-    <div className={cssClasses.Sidebar}>
-      <div className={cssClasses.HeaderHeight}>
+    <div className={classes.Sidebar}>
+      <div className={classes.HeaderHeight}>
         <img src={logo} alt="logo" />
       </div>
 
@@ -29,7 +29,7 @@ const sidebar = (props) => {
         </ul>
       </nav>
 
-      <div className={cssClasses.Banner}>
+      <div className={classes.Banner}>
         <img src={banner} alt='banner' />
       </div>
     </div>

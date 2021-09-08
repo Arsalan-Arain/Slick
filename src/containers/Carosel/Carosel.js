@@ -1,9 +1,9 @@
 import React from "react";
-import cssClasses from './Carosel.css';
+import classes from './Carosel.css';
 
 const carosel = (props) => {
   return (
-    <div className={cssClasses.Carosel}></div>
+    <div className={classes.Carosel}></div>
   )
 }
 
