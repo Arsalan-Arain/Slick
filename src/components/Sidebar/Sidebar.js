@@ -9,6 +9,10 @@ import managementIcon from '../../assets/management-icon.svg';
 import banner from '../../assets/explore-pro-banner.svg';
 
 const sidebar = (props) => {
+  const activeLinkStyle = {
+    color: '#6F8AE8',
+    fontWeight: '600'
+  }
   return (
     <div className={cssClasses.Sidebar}>
       <div className={cssClasses.HeaderHeight}>
@@ -18,10 +22,10 @@ const sidebar = (props) => {
       <nav>
         <ul>
           {/* style active pe nhi lag raha to ek variable mein save ker yahin onActiveStyle pe lagana hai */}
-          <li><img src={homeIcon} alt='icon' /><NavLink to="/" exact activeStyle={{ color: 'red', fontWeight: "600" }}>Home</NavLink></li>
-          <li><img src={analyticsIcon} alt='icon' /><NavLink to="/analytics">Analytics</NavLink></li>
-          <li><img src={productsIcon} alt='icon' /><NavLink to="/products">Products</NavLink></li>
-          <li><img src={managementIcon} alt='icon' /><NavLink to="/management">Management</NavLink></li>
+          <li><img src={homeIcon} alt='icon' /><NavLink to="/" exact activeStyle={activeLinkStyle}>Home</NavLink></li>
+          <li><img src={analyticsIcon} alt='icon' /><NavLink to="/analytics" activeStyle={activeLinkStyle}>Analytics</NavLink></li>
+          <li><img src={productsIcon} alt='icon' /><NavLink to="/products" activeStyle={activeLinkStyle}>Products</NavLink></li>
+          <li><img src={managementIcon} alt='icon' /><NavLink to="/management" activeStyle={activeLinkStyle}>Management</NavLink></li>
         </ul>
       </nav>
 

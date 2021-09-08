@@ -44,6 +44,7 @@
   font-size: 0.875rem;
   color: #8A8FA1;
   margin-left: 0.75rem;
+  width: 100%;
 }
 
 /* .Sidebar li:hover a, .Sidebar:active a, .Sidebar a.active {
@@ -52,8 +53,7 @@
 } */
 
 .Sidebar a:hover, 
-.Sidebar a:active, 
-.Sidebar a.active {
+.Sidebar a:active {
   color: #6F8AE8;
   font-weight: 600;
 }
