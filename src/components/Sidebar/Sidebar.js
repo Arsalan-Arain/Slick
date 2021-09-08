@@ -20,13 +20,26 @@ const sidebar = (props) => {
       </div>
 
       <nav>
-        <ul>
-          {/* style active pe nhi lag raha to ek variable mein save ker yahin onActiveStyle pe lagana hai */}
-          <li><img src={homeIcon} alt='icon' /><NavLink to="/" exact activeStyle={activeLinkStyle}>Home</NavLink></li>
-          <li><img src={analyticsIcon} alt='icon' /><NavLink to="/analytics" activeStyle={activeLinkStyle}>Analytics</NavLink></li>
-          <li><img src={productsIcon} alt='icon' /><NavLink to="/products" activeStyle={activeLinkStyle}>Products</NavLink></li>
-          <li><img src={managementIcon} alt='icon' /><NavLink to="/management" activeStyle={activeLinkStyle}>Management</NavLink></li>
-        </ul>
+        <NavLink to="/" exact activeStyle={activeLinkStyle}>
+          <div>
+            <img src={homeIcon} alt='icon' />Home
+          </div>
+        </NavLink>
+        <NavLink to="/analytics" activeStyle={activeLinkStyle}>
+          <div>
+            <img src={analyticsIcon} alt='icon' />Analytics
+          </div>
+        </NavLink>
+        <NavLink to="/products" activeStyle={activeLinkStyle}>
+          <div>
+            <img src={productsIcon} alt='icon' />Products
+          </div>
+        </NavLink>
+        <NavLink to="/manage-banners" activeStyle={activeLinkStyle}>
+          <div>
+            <img src={managementIcon} alt='icon' />Management
+          </div>
+        </NavLink>
       </nav>
 
       <div className={classes.Banner}>

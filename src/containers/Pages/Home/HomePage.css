@@ -1,17 +1,10 @@
 .Homepage {
   width: calc(100% - 18.75%);
   min-height: 100vh;
-  background-color: #F5F8FC;
-  /* background-color: #F5F8FC; */
+  background-color: #f5f8fc;
   margin-left: 18.75%;
-  padding: 32px 40px;
+  padding: 2rem 2.5rem;
   box-sizing: border-box;
-}
-
-.homeContainer {
-  /* width: 100%;
-  max-height: 70%;
-  overflow: scroll; */
 }
 
 .Homepage h2 {
@@ -25,11 +18,10 @@
   width: 100%;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(auto-fit, calc((100% - 84px) / 5));
-  gap: 21px 21px;
+  grid-template-columns: repeat(auto-fit, calc((100% - 5.25rem) / 5));
+  gap: 1.3125rem 1.3125rem;
   justify-content: space-between;
 }
-
 
 @media screen and (max-width: 1030px) {
   .Products {

@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import classes from './Management.css';
+import ManageBanners from './ManageBanners/ManageBanners';
+import ManageProducts from './ManageProducts/ManageProducts';
+
 
 const homePage = (props) => {
   const activeLinkStyle = {
@@ -14,8 +18,8 @@ const homePage = (props) => {
       <div className={classes.pageBody}>
         <div className={classes.pageBodyHeader}>
           <div className={classes.headerItem}>
-            <NavLink to="/manage-banners" exact activeStyle={activeLinkStyle}>Manage Banners</NavLink>
-            <NavLink className={classes.marginLeft} to="/manage-products" exact activeStyle={activeLinkStyle}>Manage Products</NavLink>
+            <NavLink to="/manage-banners">Manage Banners</NavLink>
+            <NavLink className={classes.marginLeft} to="/manage-products">Manage Products</NavLink>
           </div>
 
           <div className={classes.headerItem}>
@@ -23,11 +27,11 @@ const homePage = (props) => {
           </div>
         </div>
 
-        <div className={classes.nestedPageBody}>
-          <div className={classes.item}></div>
-          <div className={classes.item}></div>
-          <div className={classes.item}></div>
-        </div>
+        <Route path="/manage-products" component={ManageProducts} />
+        <Route path="/manage-banners" component={ManageBanners} />
+
+        {/* <ManageBanners /> */}
+        {/* <ManageProducts /> */}
       </div>
 
     </div>

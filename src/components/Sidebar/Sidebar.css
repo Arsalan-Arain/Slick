@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
@@ -34,7 +34,7 @@
   align-items: center;
   height: 3rem;
   width: auto;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   padding: 0.75rem 1rem;
   box-sizing: border-box;
 }
@@ -42,9 +42,7 @@
 .Sidebar a {
   text-decoration: none;
   font-size: 0.875rem;
-  color: #8A8FA1;
-  margin-left: 0.75rem;
-  width: 100%;
+  color: #8a8fa1;
 }
 
 /* .Sidebar li:hover a, .Sidebar:active a, .Sidebar a.active {
@@ -52,18 +50,41 @@
   font-weight: 600;
 } */
 
-.Sidebar a:hover, 
+.Sidebar a:hover,
 .Sidebar a:active {
-  color: #6F8AE8;
+  color: #6f8ae8;
   font-weight: 600;
 }
 
 .Sidebar .Banner {
-  width: 100%;
-  /* background-color: red; */
+  width: calc(18.75% - 2rem);
+  position: fixed;
+  bottom: 2.5rem;
 }
 
 .Sidebar .Banner img {
   width: 100%;
   vertical-align: middle;
 }
+
+.Sidebar nav a div {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.Sidebar nav a div img {
+  height: 24px;
+  width: 24px;
+  margin-right: 12px;
+}
+
+.Sidebar nav a:hover div {
+  background-color: #f5f6fa;
+}
+

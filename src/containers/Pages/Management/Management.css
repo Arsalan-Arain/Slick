@@ -4,21 +4,21 @@
   background-color: #f5f8fc;
   /* background-color: #F5F8FC; */
   margin-left: 18.75%;
-  padding: 32px 40px;
+  padding: 2rem 2.5rem;
   box-sizing: border-box;
 }
 
 .pageBody {
   background-color: #ffffff;
-  height: calc(100vh - (4rem + 2rem + 1.5rem + 2rem));
+  height: calc(100vh - 9.5rem);
   margin-top: 1.5rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
 .pageBodyHeader {
-  height: 40px;
+  height: 2.5rem;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
 }
 
 .marginLeft {
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 .headerItem {
@@ -47,40 +47,10 @@
   font-size: 1rem;
   font-weight: 600;
   padding: 0 1rem;
-  border-radius: 4px;
+  border-radius: 0.3125rem;
   border: none;
   background-color: #6f8ae8;
   color: #ffffff;
   cursor: pointer;
 }
 
-.nestedPageBody {
-  width: 100%;
-  height: 300px;
-  overflow: auto;
-  background-color: rgb(13, 27, 41);
-}
-
-.nestedPageBody .item {
-  display: flex;
-  width: 100%;
-  height: 63px;
-  background-color: red;
-  margin: 24px 0;
-}
-
-.nestedPageBody::-webkit-scrollbar {
-  width: 6px;
-}
-
-.nestedPageBody::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.nestedPageBody::-webkit-scrollbar-thumb {
-  background: lightgrey;
-}
-
-.nestedPageBody::-webkit-scrollbar-thumb:hover {
-  background: darkgray;
-}
