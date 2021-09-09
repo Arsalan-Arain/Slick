@@ -9,10 +9,6 @@ import managementIcon from '../../assets/management-icon.svg';
 import banner from '../../assets/explore-pro-banner.svg';
 
 const sidebar = (props) => {
-  const activeLinkStyle = {
-    color: '#6F8AE8',
-    fontWeight: '600'
-  }
   return (
     <div className={classes.Sidebar}>
       <div className={classes.HeaderHeight}>
@@ -20,22 +16,22 @@ const sidebar = (props) => {
       </div>
 
       <nav>
-        <NavLink to="/" exact activeStyle={activeLinkStyle}>
+        <NavLink to="/" exact activeClassName={classes.activeLink}>
           <div>
             <img src={homeIcon} alt='icon' />Home
           </div>
         </NavLink>
-        <NavLink to="/analytics" activeStyle={activeLinkStyle}>
+        <NavLink to="/analytics" activeClassName={classes.activeLink}>
           <div>
             <img src={analyticsIcon} alt='icon' />Analytics
           </div>
         </NavLink>
-        <NavLink to="/products" activeStyle={activeLinkStyle}>
+        <NavLink to="/products" activeClassName={classes.activeLink}>
           <div>
             <img src={productsIcon} alt='icon' />Products
           </div>
         </NavLink>
-        <NavLink to="/manage-banners" activeStyle={activeLinkStyle}>
+        <NavLink to="/manage-banners" activeClassName={classes.activeLink}>
           <div>
             <img src={managementIcon} alt='icon' />Management
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { Route } from "react-router-dom";
 import Header from '../../../components/Header/Header';
@@ -8,8 +8,16 @@ import ManageProducts from './ManageProducts/ManageProducts';
 
 
 const homePage = (props) => {
-  const activeLinkStyle = {
+  const [productPage, setProductPage] = useState(false);
 
+  const togglePageHandler = () => {
+    setProductPage(!productPage)
+  }
+
+
+  const activeLinkStyle = {
+    fontWeight: '600',
+    color: '#6F8AE8'
   }
   return (
     <div className={classes.Management}>
@@ -18,8 +26,8 @@ const homePage = (props) => {
       <div className={classes.pageBody}>
         <div className={classes.pageBodyHeader}>
           <div className={classes.headerItem}>
-            <NavLink to="/manage-banners">Manage Banners</NavLink>
-            <NavLink className={classes.marginLeft} to="/manage-products">Manage Products</NavLink>
+            <NavLink to="/manage-banners" activeStyle={activeLinkStyle}>Manage Banners</NavLink>
+            <NavLink className={classes.marginLeft} activeStyle={activeLinkStyle} to="/manage-products">Manage Products</NavLink>
           </div>
 
           <div className={classes.headerItem}>
@@ -29,9 +37,6 @@ const homePage = (props) => {
 
         <Route path="/manage-products" component={ManageProducts} />
         <Route path="/manage-banners" component={ManageBanners} />
-
-        {/* <ManageBanners /> */}
-        {/* <ManageProducts /> */}
       </div>
 
     </div>
