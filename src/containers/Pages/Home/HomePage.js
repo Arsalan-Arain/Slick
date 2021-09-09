@@ -1,20 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
 import Header from '../../../components/Header/Header';
-import Carosel from '../../Carosel/Carosel';
 import ProductCard from '../../../components/ProductCard/ProductCard';
-import cssClasses from './HomePage.css';
+import classes from './HomePage.css';
+import Slider from '../../../components/Slider/Slider';
 
 const homePage = (props) => {
   return (
-    <div className={cssClasses.Homepage}>
+    <div className={classes.Homepage}>
       <Header text={"Hey Awesome."} heading={"Welcome Back..."} />
-      <Carosel />
-      <h2>Listed Products</h2>
-      <div className={cssClasses.productsContainer}>
-        <div className={cssClasses.Products}>
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
+      <div className={classes.homeContainer}>
+        <Slider />
+        <h2>Listed Products</h2>
+
+        <div className={classes.Products}>
+          <ProductCard name={"Overcome Basic Sweatshirt"} category={"CASUAL"} price={"3222"} />
+          <ProductCard name={"Overcome Purple"} category={"OUTDOOR"} price={"2000"} />
+          <ProductCard name={"Apple"} category={"PARTY"} price={"2000"} />
           <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
           <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
           <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
@@ -24,4 +26,11 @@ const homePage = (props) => {
   );
 }
 
-export default homePage;
+const mapStateToProps = state => {
+  return {
+    banners: state.banners, // isse access kerne k liye --- props.banner --- for class-based: this.props.banners
+    producs: state.producs
+  }
+}
+
+export default connect(mapStateToProps)(homePage);

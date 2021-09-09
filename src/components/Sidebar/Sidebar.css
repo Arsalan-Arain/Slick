@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: aqua;
+  background-color: #ffffff;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
@@ -12,12 +12,69 @@
 .HeaderHeight {
   display: flex;
   height: 4rem;
-  /* background-color: bisque; */
   justify-content: center;
   align-items: center;
+  margin-bottom: 2.5rem;
 }
 
 .HeaderHeight img {
   height: 3rem;
-  width: 125px7.8125rem;
+  width: 7.8125rem;
+}
+
+.Sidebar a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: #8a8fa1;
+}
+
+.Sidebar a:hover div {
+  color: #6f8ae8;
+  font-weight: 600;
+  background-color: #f5f6fa;
+}
+
+.Banner {
+  width: calc(18.75% - 2rem);
+  position: fixed;
+  bottom: 2.5rem;
+}
+
+.Sidebar .Banner img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.Sidebar nav a div {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.Sidebar nav a div img {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 12px;
+}
+
+.activeLink div {
+  color: #6f8ae8;
+  background-color: #f5f6fa;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .Sidebar nav a div img {
+    height: 18px;
+    width: 18px;
+    margin-right: 4px;
+  }
+  .Sidebar nav a div {
+    padding: 4px 4px;
+  }
 }
