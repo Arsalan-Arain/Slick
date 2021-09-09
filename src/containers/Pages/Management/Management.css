@@ -36,12 +36,6 @@
   align-items: center;
 }
 
-.pageBodyHeader a {
-  text-decoration: none;
-  font-size: 1rem;
-  color: #8a8fa1;
-}
-
 .pageBodyHeader button {
   height: 100%;
   font-size: 1rem;
@@ -54,3 +48,36 @@
   cursor: pointer;
 }
 
+.togglePageButton {
+  color: #8a8fa1;
+  cursor: pointer;
+}
+
+.togglePageButton:hover,
+.togglePageButton:hover div {
+  font-weight: 600;
+  color: #6f8ae8;
+  display: block;
+}
+
+.pageActive {
+  font-weight: 600;
+  color: #6f8ae8;
+}
+
+.activeBar {
+  height: 0.25rem;
+  border-radius: 4px;
+  width: 1.3rem;
+  background-color: #6f8ae8;
+  margin: auto;
+  margin-top: 0.25rem;
+}
+
+.hide {
+  background: transparent;
+}
+
+.transparentBg {
+  background: transparent;
+}

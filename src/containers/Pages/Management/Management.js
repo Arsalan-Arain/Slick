@@ -5,6 +5,7 @@ import Header from '../../../components/Header/Header';
 import classes from './Management.css';
 import ManageBanners from './ManageBanners/ManageBanners';
 import ManageProducts from './ManageProducts/ManageProducts';
+import manageBanners from "./ManageBanners/ManageBanners";
 
 
 const homePage = (props) => {
@@ -14,11 +15,16 @@ const homePage = (props) => {
     setProductPage(!productPage)
   }
 
+  let pageBody = <ManageBanners />;
+  if (productPage) {
+    pageBody = <ManageProducts />;
+  }
 
-  const activeLinkStyle = {
+  const activePageStyle = {
     fontWeight: '600',
     color: '#6F8AE8'
   }
+
   return (
     <div className={classes.Management}>
       <Header text={""} heading={"Management"} />
@@ -26,8 +32,14 @@ const homePage = (props) => {
       <div className={classes.pageBody}>
         <div className={classes.pageBodyHeader}>
           <div className={classes.headerItem}>
-            <NavLink to="/manage-banners" activeStyle={activeLinkStyle}>Manage Banners</NavLink>
-            <NavLink className={classes.marginLeft} activeStyle={activeLinkStyle} to="/manage-products">Manage Products</NavLink>
+            <div onClick={togglePageHandler} className={`${classes.togglePageButton} ${!productPage ? classes.pageActive : null}`}>
+              Manage Banners
+              <div className={`${classes.activeBar} ${productPage ? classes.hide : null}`}></div>
+            </div>
+            <div onClick={togglePageHandler} className={`${classes.marginLeft} ${classes.togglePageButton} ${productPage ? classes.pageActive : null}`}>
+              Manage Products
+              <div className={`${classes.activeBar} ${!productPage ? classes.hide : null}`}></div>
+            </div>
           </div>
 
           <div className={classes.headerItem}>
@@ -35,8 +47,8 @@ const homePage = (props) => {
           </div>
         </div>
 
-        <Route path="/manage-products" component={ManageProducts} />
-        <Route path="/manage-banners" component={ManageBanners} />
+        {pageBody}
+
       </div>
 
     </div>

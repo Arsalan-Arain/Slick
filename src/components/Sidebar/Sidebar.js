@@ -18,22 +18,22 @@ const sidebar = (props) => {
       <nav>
         <NavLink to="/" exact activeClassName={classes.activeLink}>
           <div>
-            <img src={homeIcon} alt='icon' />Home
+            <img src={homeIcon} alt='icon' className={classes.navIcon} />Home
           </div>
         </NavLink>
         <NavLink to="/analytics" activeClassName={classes.activeLink}>
           <div>
-            <img src={analyticsIcon} alt='icon' />Analytics
+            <img src={analyticsIcon} alt='icon' className={classes.navIcon} />Analytics
           </div>
         </NavLink>
         <NavLink to="/products" activeClassName={classes.activeLink}>
           <div>
-            <img src={productsIcon} alt='icon' />Products
+            <img src={productsIcon} alt='icon' className={classes.navIcon} />Products
           </div>
         </NavLink>
-        <NavLink to="/manage-banners" activeClassName={classes.activeLink}>
+        <NavLink to="/management" activeClassName={classes.activeLink}>
           <div>
-            <img src={managementIcon} alt='icon' />Management
+            <img src={managementIcon} alt='icon' className={classes.navIcon} />Management
           </div>
         </NavLink>
       </nav>

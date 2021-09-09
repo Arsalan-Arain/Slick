@@ -33,18 +33,19 @@ const manageBanners = (props) => {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    banners: state.banners
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     banners: state.banners
+//   };
+// };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddBanner: () => dispatch({ type: 'ADD_BANNER', newBanner: newBanner }),
-    onUpdateBanner: () => dispatch({ type: 'UPDATE_BANNER', updatedBanner: updatedBanner }),
-    onDeleteBanner: () => dispatch({ type: 'DELETE_BANNER', deletedBanner: deletedBanner })
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddBanner: () => dispatch({ type: 'ADD_BANNER', newBanner: newBanner }),
+//     onUpdateBanner: () => dispatch({ type: 'UPDATE_BANNER', updatedBanner: updatedBanner }),
+//     onDeleteBanner: () => dispatch({ type: 'DELETE_BANNER', deletedBanner: deletedBanner })
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(manageBanners);
+// export default connect(mapStateToProps, mapDispatchToProps)(manageBanners);
+export default manageBanners;
