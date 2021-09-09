@@ -11,7 +11,6 @@ class App extends Component {
         <Layout>
           <Route path="/" exact component={HomePage} />
           <Route path="/management" component={ManagementPage} />
-          {/* <Route path="/manage-products" component={ManagementPage} /> */}
         </Layout>
       </BrowserRouter>
     );

@@ -13,7 +13,7 @@ const productCard = (props) => {
       </div>
       <div className={classes.productDetails}>
         <span>{props.category}</span>
-        <h4>{props.name}</h4>
+        <div><h4>{props.name}</h4></div>
       </div>
     </div>
   );
