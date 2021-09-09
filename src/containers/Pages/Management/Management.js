@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from 'react-router-dom';
-import { Route } from "react-router-dom";
 import Header from '../../../components/Header/Header';
 import classes from './Management.css';
-import ManageBanners from './ManageBanners/ManageBanners';
-import ManageProducts from './ManageProducts/ManageProducts';
-import manageBanners from "./ManageBanners/ManageBanners";
-
+import ManageBanners from '../../../components/ManageBanners/ManageBanners';
+import ManageProducts from '../../../components/ManageProducts/ManageProducts';
 
 const homePage = (props) => {
   const [productPage, setProductPage] = useState(false);
@@ -15,9 +11,16 @@ const homePage = (props) => {
     setProductPage(!productPage)
   }
 
+  // in dono functions mein arrow func ki jaga jo dispatch k func honge wo aye ge
+  // or sirf functions k naam hi aye ge na () bhi. () sirf param ho tab honge wo bhi doosre func mein a k
+  const addBannerHandler = () => { };
+  const addProductHandler = () => { };
+  let addBtnHandler = addBannerHandler;
+
   let pageBody = <ManageBanners />;
   if (productPage) {
     pageBody = <ManageProducts />;
+    addBtnHandler = addProductHandler;
   }
 
   const activePageStyle = {
@@ -28,7 +31,6 @@ const homePage = (props) => {
   return (
     <div className={classes.Management}>
       <Header text={""} heading={"Management"} />
-
       <div className={classes.pageBody}>
         <div className={classes.pageBodyHeader}>
           <div className={classes.headerItem}>
@@ -46,11 +48,8 @@ const homePage = (props) => {
             <button>+ Add New</button>
           </div>
         </div>
-
         {pageBody}
-
       </div>
-
     </div>
   );
 }

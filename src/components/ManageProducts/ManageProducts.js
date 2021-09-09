@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import classes from '../ManageBanners/ManageBanners.css';
-import editBtn from '../../../../assets/editBtn.png';
-import deltBtn from '../../../../assets/delBtn.png';
-import coin from '../../../../assets/coin.svg';
+import editBtn from '../../assets/editBtn.png';
+import deltBtn from '../../assets/delBtn.png';
+import coin from '../../assets/coin.svg';
 
 const newProduct = {};
 const updatedProduct = {};

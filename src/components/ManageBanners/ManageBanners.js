@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import classes from './ManageBanners.css';
-import editBtn from '../../../../assets/editBtn.png';
-import deltBtn from '../../../../assets/delBtn.png';
+import editBtn from '../../assets/editBtn.png';
+import deltBtn from '../../assets/delBtn.png';
 
 const newBanner = {};
 const updatedBanner = {};
