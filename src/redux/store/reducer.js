@@ -20,6 +20,7 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.ADD_BANNER:
+      // console.log("[reducer] ", action.newBanner)
       return {
         ...state,
         banners: state.banners.concat(action.newBanner)

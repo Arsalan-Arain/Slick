@@ -6,6 +6,12 @@ import deltBtn from '../../assets/delBtn.png';
 import * as actionCreators from '../../redux/actions/index';
 
 const manageBanners = (props) => {
+  // ESE LINK EK OBJ MEIN HOGA OR USSE BHEJNA HOGA onClick PE
+  // const newBanner = {
+  //   link: "https://blog.creatopy.com/wp-content/uploads/2016/06/images-for-banner-ads.png"
+  // }
+  // onClick={()=>props.onAddBanner(newBanner)}
+
   return (
     <div className={classes.nestedPageBody}>
 
@@ -19,10 +25,6 @@ const manageBanners = (props) => {
           <img onClick={() => props.onDeleteBanner(banner._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
         </div>
       ))}
-
-
-
-
     </div>
   );
 }
@@ -42,4 +44,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(manageBanners);
-// export default manageBanners;

@@ -2,24 +2,25 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 /////////////////////////////////////////////////////////////////////
-export const addingBanner = (newBanner) => { // iske arg mein api ka res aye ga q k us mein id hogi
+// *********************** Add Banner Start *************************
+export const addingBanner = (newBanner) => {
   return {
     type: actionTypes.ADD_BANNER,
     newBanner: newBanner
   }
 }
-export const addBanner = (link) => {
+export const addBanner = (newBanner) => {
   return dispatch => {
-    axios.post('https://internship-slick-api.herokuapp.com/api/banners', link)
+    axios.post('https://internship-slick-api.herokuapp.com/api/banners', newBanner)
       .then(response => {
-        dispatch(putBanner(response.data.data))
+        dispatch(addingBanner(response.data.data))
       })
       .catch(err => {
-        console.log('Error: ', err);
+        console.log('Error*********: ', err);
       })
   };
 }
-
+// ************************* Add Banner End *************************
 /////////////////////////////////////////////////////////////////////
 
 export const putBanner = (bannerId, newLink) => {
@@ -39,12 +40,11 @@ export const updateBanner = (bannerId, newLink) => {
       .catch(err => {
         console.log('Error: ', err);
       })
-  };  
+  };
 }
 
 /////////////////////////////////////////////////////////////////////
-
-// *********** delete banner start ************
+// ********************* delete banner start ************************
 export const removeBanner = (bannerId) => {
   return {
     type: actionTypes.DELETE_BANNER,
@@ -62,11 +62,9 @@ export const deleteBanner = (bannerId) => {
       })
   };
 }
-// ************ delete banner end *************
-
+// *********************** delete banner end ************************
 /////////////////////////////////////////////////////////////////////
-
-// ********** fetching banners start **********
+// ******************* fetching banners start ***********************
 export const setBanners = (banners) => {
   return {
     type: actionTypes.SET_BANNERS,
@@ -84,4 +82,4 @@ export const initBanners = () => {
       })
   };
 };
-// ********** fetching banners end ************
+// ********************* fetching banners end ***********************
