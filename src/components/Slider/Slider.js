@@ -28,7 +28,7 @@ const slider = (props) => {
 
   useEffect(() => {
     let timer = setInterval(() => {
-      if (slideIndex == banners.length - 1) { setSlideIndex(0) }
+      if (slideIndex == props.banners.length - 1) { setSlideIndex(0) }
       else { setSlideIndex(slideIndex + 1) }
     }, 4000);
     return () => { clearInterval(timer) }
@@ -36,13 +36,13 @@ const slider = (props) => {
 
   return (
     <div className={classes.slider}>
-        {props.banners.map(({ _id, link }, index) => (
-          <Slide class_Name={slideIndex === index ? `${classes.slide} ${classes.activeSlide}` : classes.slide} key={_id} link={link} />
+      {props.banners.map(({ _id, link }, index) => (
+        <Slide class_Name={slideIndex === index ? `${classes.slide} ${classes.activeSlide}` : classes.slide} key={_id} link={link} />
+      ))}
+      <div className={classes.containerDots}>
+        {Array.from({ length: props.banners.length }).map((item, index) => (
+          <div key={index} onClick={() => moveDot(index)} className={slideIndex === index ? `${classes.dot} ${classes.activeDot}` : classes.dot} ></div>
         ))}
-        <div className={classes.containerDots}>
-          {Array.from({ length: banners.length }).map((item, index) => (
-            <div key={index} onClick={() => moveDot(index)} className={slideIndex === index ? `${classes.dot} ${classes.activeDot}` : classes.dot} ></div>
-          ))}
       </div>
     </div >
   );
