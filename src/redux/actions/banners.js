@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes';
 
 /////////////////////////////////////////////////////////////////////
 // *********************** Add Banner Start *************************
-export const addingBanner = (newBanner) => {
+export const createBanner = (newBanner) => { // iska name addingBanner tha change ker diya agar masla kare to wohi kerna hai phir
   return {
     type: actionTypes.ADD_BANNER,
     newBanner: newBanner
@@ -13,7 +13,7 @@ export const addBanner = (newBanner) => {
   return dispatch => {
     axios.post('https://internship-slick-api.herokuapp.com/api/banners', newBanner)
       .then(response => {
-        dispatch(addingBanner(response.data.data))
+        dispatch(createBanner(response.data.data))
       })
       .catch(err => {
         console.log('Error*********: ', err);
@@ -26,14 +26,14 @@ export const addBanner = (newBanner) => {
 export const putBanner = (bannerId, newLink) => {
   return {
     type: actionTypes.UPDATE_BANNER,
-    updatedBannerID: bannerId,
+    updatedBannerId: bannerId,
     newLink: newLink
   }
 }
 export const updateBanner = (bannerId, newLink) => {
   // yahan par bhi ek obj bana sakte hain data bhejne k liye api pe
   return dispatch => {
-    axios.put(`https://internship-slick-api.herokuapp.com/api/banners/${bannerId}`, newLink)
+    axios.put(`https://internship-slick-api.herokuapp.com/api/banners/${bannerId}`, { link: newLink })
       .then(response => {
         dispatch(putBanner(bannerId, newLink))
       })

@@ -12,6 +12,10 @@ const manageBanners = (props) => {
   // }
   // onClick={()=>props.onAddBanner(newBanner)}
 
+  // FOR UPDATE BANNER
+  // const bannerLink = "https://img.freepik.com/free-vector/stylish-glowing-digital-red-lines-banner_1017-23964.jpg?size=626&ext=jpg";
+  // onClick={()=> props.onUpdateBanner(banner._id, bannerLink)}
+
   return (
     <div className={classes.nestedPageBody}>
 
@@ -38,7 +42,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAddBanner: (newBanner) => dispatch(actionCreators.addBanner(newBanner)),
-    onUpdateBanner: (bannerId, data) => dispatch(actionCreators.updateBanner(bannerId, data)),
+    onUpdateBanner: (bannerId, newLink) => dispatch(actionCreators.updateBanner(bannerId, newLink)),
     onDeleteBanner: (bannerId) => dispatch(actionCreators.deleteBanner(bannerId))
   };
 };

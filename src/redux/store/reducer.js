@@ -20,22 +20,28 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.ADD_BANNER:
-      // console.log("[reducer] ", action.newBanner)
       return {
         ...state,
         banners: state.banners.concat(action.newBanner)
       }
 
     case actionTypes.UPDATE_BANNER:
-      return {
-        
-      }
+      const index = state.banners.findIndex((banner) => banner._id === action.updatedBannerId);
+      let updatedBanners = [...state.banners];
+      let updatedBanner = { ...updatedBanners[index] }
+      updatedBanner.link = action.newLink;
+      updatedBanners[index] = updatedBanner;
 
-    case actionTypes.DELETE_BANNER:
-      const updatedBanners = state.banners.filter(banner => banner._id !== action.deletedBannerId);
       return {
         ...state,
         banners: updatedBanners
+      }
+
+    case actionTypes.DELETE_BANNER:
+      const updatedBannersAfterDeletion = state.banners.filter(banner => banner._id !== action.deletedBannerId);
+      return {
+        ...state,
+        banners: updatedBannersAfterDeletion
       }
 
     case actionTypes.ADD_PRODUCT:
