@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Slide from './Slide';
 import classes from './Slider.css';
 // import Slide from "./Slide";
@@ -35,7 +36,7 @@ const slider = (props) => {
 
   return (
     <div className={classes.slider}>
-        {banners.map(({ _id, link }, index) => (
+        {props.banners.map(({ _id, link }, index) => (
           <Slide class_Name={slideIndex === index ? `${classes.slide} ${classes.activeSlide}` : classes.slide} key={_id} link={link} />
         ))}
         <div className={classes.containerDots}>
@@ -47,4 +48,10 @@ const slider = (props) => {
   );
 }
 
-export default slider;
+const mapStateToProps = state => {
+  return {
+    banners: state.banners
+  };
+};
+
+export default connect(mapStateToProps)(slider);

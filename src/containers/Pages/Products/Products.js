@@ -4,7 +4,7 @@ import classes from './Products.css';
 
 const productsPage = props => (
   <div className={classes.Products}>
-    <Header text={""} heading={"Analytics"} />
+    <Header text={""} heading={"Products"} />
   </div>
 )
 

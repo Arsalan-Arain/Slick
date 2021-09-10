@@ -3,49 +3,43 @@ import { connect } from "react-redux";
 import classes from './ManageBanners.css';
 import editBtn from '../../assets/editBtn.png';
 import deltBtn from '../../assets/delBtn.png';
-
-const newBanner = {};
-const updatedBanner = {};
-const deletedBanner = 'id';
+import * as actionCreators from '../../redux/actions/index';
 
 const manageBanners = (props) => {
   return (
     <div className={classes.nestedPageBody}>
-      <div className={classes.bannerItem}>
-        <div className={classes.productImage}></div>
-        <div className={classes.productLink}></div>
-        <img src={editBtn} alt='btn' className={classes.smallBtn} />
-        <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-      </div>
-      <div className={classes.bannerItem}>
-        <div className={classes.productImage}></div>
-        <div className={classes.productLink}>https://abc.com/images/123sdkfsjfdafkasjllasflkasdflkl123sdkfsjfdafkasjllasflkasdflkl123sdkfsjfdafkasjllasflkasdflkl</div>
-        <img src={editBtn} alt='btn' className={classes.smallBtn} />
-        <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-      </div>
-      <div className={classes.bannerItem}>
-        <div className={classes.productImage}></div>
-        <div className={classes.productLink}></div>
-        <img src={editBtn} alt='btn' className={classes.smallBtn} />
-        <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-      </div>
+
+      {props.banners.map(banner => (
+        <div key={banner._id} className={classes.bannerItem}>
+          <div className={classes.productImage}>
+            <img src={banner.link} alt="" />
+          </div>
+          <div className={classes.productLink}>{banner.link}</div>
+          <img src={editBtn} alt='btn' className={classes.smallBtn} />
+          <img onClick={() => props.onDeleteBanner(banner._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
+        </div>
+      ))}
+
+
+
+
     </div>
   );
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     banners: state.banners
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    banners: state.banners
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onAddBanner: () => dispatch({ type: 'ADD_BANNER', payload: { newBanner } }),
-//     onUpdateBanner: () => dispatch({ type: 'UPDATE_BANNER', payload: { updatedBannerID: updatedBannerID } }),
-//     onDeleteBanner: () => dispatch({ type: 'DELETE_BANNER', payload: { deletedBannerID: deletedBannerID } })
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddBanner: (newBanner) => dispatch(actionCreators.addBanner(newBanner)),
+    onUpdateBanner: (bannerId, data) => dispatch(actionCreators.updateBanner(bannerId, data)),
+    onDeleteBanner: (bannerId) => dispatch(actionCreators.deleteBanner(bannerId))
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(manageBanners);
-export default manageBanners;
+export default connect(mapStateToProps, mapDispatchToProps)(manageBanners);
+// export default manageBanners;

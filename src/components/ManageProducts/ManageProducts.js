@@ -4,10 +4,7 @@ import classes from '../ManageBanners/ManageBanners.css';
 import editBtn from '../../assets/editBtn.png';
 import deltBtn from '../../assets/delBtn.png';
 import coin from '../../assets/coin.svg';
-
-const newProduct = {};
-const updatedProduct = {};
-const deletedProduct = 'id';
+import * as actionCreators from '../../redux/actions/index';
 
 const manageProducts = (props) => {
   return (
@@ -20,79 +17,30 @@ const manageProducts = (props) => {
       </div>
 
       <div className={classes.nestedPageBodyProduct}>
-        <div className={classes.productItem}>
-          <div style={{ width: '9.77%' }}>
-            <div className={classes.productShowcase}></div>
-          </div>
-          <div style={{ width: '21.28%' }}>Casual</div>
-          <div style={{ width: '36.76%', fontWeight: '600' }}>Overcome basic sweatshirt</div>
-          <div className={classes.productPrice}>
-            <div className={classes.displayFlex}>
-              <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
-              3222
-            </div>
-            <div className={classes.displayFlex}>
-              <img src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
-              <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-            </div>
-          </div>
-        </div>
 
-        <div className={classes.productItem}>
-          <div style={{ width: '9.77%' }}>
-            <div className={classes.productShowcase}></div>
-          </div>
-          <div style={{ width: '21.28%' }}>Casual</div>
-          <div style={{ width: '36.76%', fontWeight: '600' }}>Overcome basic sweatshirt</div>
-          <div className={classes.productPrice}>
-            <div className={classes.displayFlex}>
-              <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
-              3222
+        {props.products.map(product => (
+          <div key={product._id} className={classes.productItem}>
+            <div style={{ width: '9.77%' }}>
+              <div className={classes.productShowcase}>
+                <img src={product.image} alt="" />
+              </div>
             </div>
-            <div className={classes.displayFlex}>
-              <img src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
-              <img src={deltBtn} alt='btn' className={classes.smallBtn} />
+            <div style={{ width: '21.28%' }}>{product.category.name}</div>
+            <div style={{ width: '36.76%', fontWeight: '600' }}>{product.name}</div>
+            <div className={classes.productPrice}>
+              <div className={classes.displayFlex}>
+                <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
+                {product.price}
+              </div>
+              <div className={classes.displayFlex}>
+                <img src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
+                <img onClick={() => props.onDeleteProduct(product._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
+              </div>
             </div>
           </div>
-        </div>
+        ))}
 
-        <div className={classes.productItem}>
-          <div style={{ width: '9.77%' }}>
-            <div className={classes.productShowcase}></div>
-          </div>
-          <div style={{ width: '21.28%' }}>Casual</div>
-          <div style={{ width: '36.76%', fontWeight: '600' }}>Overcome basic sweatshirt</div>
-          <div className={classes.productPrice}>
-            <div className={classes.displayFlex}>
-              <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
-              3222
-            </div>
-            <div className={classes.displayFlex}>
-              <img src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
-              <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-            </div>
-          </div>
-        </div>
-
-        <div className={classes.productItem}>
-          <div style={{ width: '9.77%' }}>
-            <div className={classes.productShowcase}></div>
-          </div>
-          <div style={{ width: '21.28%' }}>Casual</div>
-          <div style={{ width: '36.76%', fontWeight: '600' }}>Overcome basic sweatshirt </div>
-          <div className={classes.productPrice}>
-            <div className={classes.displayFlex}>
-              <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
-              3222
-            </div>
-            <div className={classes.displayFlex}>
-              <img src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
-              <img src={deltBtn} alt='btn' className={classes.smallBtn} />
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
   );
 }
@@ -105,9 +53,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddProduct: () => dispatch({ type: 'ADD_PRODUCT', newProduct: newProduct }),
-    onUpdateProduct: () => dispatch({ type: 'UPDATE_PRODUCT', updatedProduct: updatedProduct }),
-    onDeleteProduct: () => dispatch({ type: 'DELETE_PRODUCT', deletedProduct: deletedProduct })
+    onAddProduct: (newProduct) => dispatch(actionCreators.addProduct(newProduct)),
+    onUpdateProduct: (productId, data) => dispatch(actionCreators.updateProduct(productId, data)),
+    onDeleteProduct: (ProductId) => dispatch(actionCreators.deleteProduct(ProductId))
   };
 };
 
