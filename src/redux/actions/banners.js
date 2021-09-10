@@ -1,21 +1,45 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
-export const addBanner = (newBanner) => {
+/////////////////////////////////////////////////////////////////////
+export const addingBanner = (newBanner) => { // iske arg mein api ka res aye ga q k us mein id hogi
   return {
     type: actionTypes.ADD_BANNER,
     newBanner: newBanner
   }
 }
+export const addBanner = (link) => {
+  return dispatch => {
+    axios.post('https://internship-slick-api.herokuapp.com/api/banners', link)
+      .then(response => {
+        dispatch(putBanner(response.data.data))
+      })
+      .catch(err => {
+        console.log('Error: ', err);
+      })
+  };
+}
 
 /////////////////////////////////////////////////////////////////////
 
-export const updateBanner = (bannerId, data) => {
+export const putBanner = (bannerId, newLink) => {
   return {
     type: actionTypes.UPDATE_BANNER,
     updatedBannerID: bannerId,
-    data: data
+    newLink: newLink
   }
+}
+export const updateBanner = (bannerId, newLink) => {
+  // yahan par bhi ek obj bana sakte hain data bhejne k liye api pe
+  return dispatch => {
+    axios.put(`https://internship-slick-api.herokuapp.com/api/banners/${bannerId}`, newLink)
+      .then(response => {
+        dispatch(putBanner(bannerId, newLink))
+      })
+      .catch(err => {
+        console.log('Error: ', err);
+      })
+  };  
 }
 
 /////////////////////////////////////////////////////////////////////

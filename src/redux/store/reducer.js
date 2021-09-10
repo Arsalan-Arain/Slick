@@ -20,10 +20,15 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.ADD_BANNER:
-      return {}
+      return {
+        ...state,
+        banners: state.banners.concat(action.newBanner)
+      }
 
     case actionTypes.UPDATE_BANNER:
-      return {}
+      return {
+        
+      }
 
     case actionTypes.DELETE_BANNER:
       const updatedBanners = state.banners.filter(banner => banner._id !== action.deletedBannerId);
