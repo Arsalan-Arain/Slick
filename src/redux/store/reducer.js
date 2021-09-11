@@ -45,16 +45,26 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.ADD_PRODUCT:
-      return {}
+      return {
+        ...state,
+        products: state.products.concat(action.newProduct)
+      }
 
     case actionTypes.UPDATE_PRODUCT:
-      return {}
+      const indexx = state.products.findIndex((product) => product._id === action.updatedProductId);
+      let updatedProducts = [...state.products];
+      updatedProducts[indexx] = action.data;
 
-    case actionTypes.DELETE_PRODUCT:
-      const updatedProducts = state.products.filter(product => product._id !== action.deletedProductId);
       return {
         ...state,
         products: updatedProducts
+      }
+
+    case actionTypes.DELETE_PRODUCT:
+      const updatedProductsAfterDeletion = state.products.filter(product => product._id !== action.deletedProductId);
+      return {
+        ...state,
+        products: updatedProductsAfterDeletion
       }
 
     default:

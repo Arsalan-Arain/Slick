@@ -11,7 +11,7 @@ export const createBanner = (newBanner) => { // iska name addingBanner tha chang
 }
 export const addBanner = (newBanner) => {
   return dispatch => {
-    axios.post('https://internship-slick-api.herokuapp.com/api/banners', newBanner)
+    axios.post('https://internship-slick-api.herokuapp.com/api/banners', { link: newBanner })
       .then(response => {
         dispatch(createBanner(response.data.data))
       })

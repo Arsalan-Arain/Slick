@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 /////////////////////////////////////////////////////////////////////
-export const addingProduct = (newProduct) => {
+export const createProduct = (newProduct) => {
   return {
     type: actionTypes.ADD_PRODUCT,
     newProduct: newProduct
@@ -10,7 +10,15 @@ export const addingProduct = (newProduct) => {
 }
 
 export const addProduct = (newProduct) => {
-
+  return dispatch => {
+    axios.post('https://internship-slick-api.herokuapp.com/api/products', newProduct)
+      .then(response => {
+        dispatch(createProduct(response.data.data))
+      })
+      .catch(err => {
+        console.log('Error...: ', err);
+      })
+  };
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -23,7 +31,16 @@ export const putProduct = (productId, data) => {
 }
 
 export const updateProduct = (productId, data) => {
-  
+  return dispatch => {
+    axios.put(`https://internship-slick-api.herokuapp.com/api/products/${productId}`, data)
+      .then(response => {
+        console.log('response...: ', response.data.data)
+        dispatch(putProduct(productId, response.data.data))
+      })
+      .catch(err => {
+        console.log('Error: ', err);
+      })
+  };
 }
 
 ///////////////////////////////////////////////////////////////////
