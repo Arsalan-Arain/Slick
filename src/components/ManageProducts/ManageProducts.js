@@ -6,24 +6,37 @@ import deltBtn from '../../assets/delBtn.png';
 import coin from '../../assets/coin.svg';
 import * as actionCreators from '../../redux/actions/index';
 import Modal from '../UI/Modal/Modal';
-import Form from '../UI/Form/FormProduct/FormProduct';
+import Form from '../UI/Form/FormUpdateProduct/FormUpdateProduct';
 
 const manageProducts = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [productId, setProductId] = useState();
+  const [productData, setProductData] = useState();
+
   const modalHandler = () => {
     setShowModal(true);
   }
   const closeModalHandler = () => {
     setShowModal(false);
   }
-  const saveItemHandler = () => {
-    alert('saved')
-    closeModalHandler()
+  const saveItemHandler = (productData) => {
+    props.onUpdateProduct(productId, productData);
+    closeModalHandler();
+  }
+  const updateProductHandler = (id, image, name, cat, price) => {
+    setProductData({
+      image: image,
+      name: name,
+      category: cat._id,
+      price: price
+    });
+    setProductId(id);
+    modalHandler();
   }
 
   return (
     <React.Fragment>
-      <Modal title={'Add New Banner'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} /></Modal>
+      <Modal title={'Add New Banner'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} productData={productData} /></Modal>
       <div>
         <div className={classes.manageProductHeader} style={{ display: 'flex' }}>
           <div className={classes.headerSection} style={{ width: '9.77%' }}></div>
@@ -49,7 +62,7 @@ const manageProducts = (props) => {
                   {product.price}
                 </div>
                 <div className={classes.displayFlex}>
-                  <img onClick={modalHandler} src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
+                  <img onClick={() => { updateProductHandler(product._id, product.image, product.name, product.category, product.price) }} src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
                   <img onClick={() => props.onDeleteProduct(product._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
                 </div>
               </div>

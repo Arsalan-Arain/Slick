@@ -5,35 +5,33 @@ import editBtn from '../../assets/editBtn.png';
 import deltBtn from '../../assets/delBtn.png';
 import * as actionCreators from '../../redux/actions/index';
 import Modal from '../UI/Modal/Modal';
-import Form from '../UI/Form/FormBanner/FormBanner';
+import Form from '../UI/Form/FormUpdateBanner/FormUpdateBanner';
 
 const manageBanners = (props) => {
   const [showModal, setShowModal] = useState(false);
-  
+  const [bannerId, setBannerId] = useState();
+  const [bannerLink, setBannerLink] = useState();
+
   const modalHandler = () => {
     setShowModal(true);
   }
   const closeModalHandler = () => {
     setShowModal(false);
   }
-  const saveItemHandler = (id, data) => {
-    alert('saved')
+  const saveItemHandler = (updatedBanner) => {
+    props.onUpdateBanner(bannerId, updatedBanner)
     closeModalHandler()
   }
 
-  // ESE LINK EK VAR MEIN HOGA OR USSE BHEJNA HOGA onClick PE
-  // const newBanner = {
-  //   link: "https://blog.creatopy.com/wp-content/uploads/2016/06/images-for-banner-ads.png"
-  // }
-  // onClick={()=>props.onAddBanner(newBanner)}
-
-  // FOR UPDATE BANNER
-  // const bannerLink = "https://img.freepik.com/free-vector/stylish-glowing-digital-red-lines-banner_1017-23964.jpg?size=626&ext=jpg";
-  // onClick={()=> props.onUpdateBanner(banner._id, bannerLink)}
+  const updateBannerHandler = (id, link) => {
+    setBannerId(id)
+    setBannerLink(link);
+    modalHandler();
+  }
 
   return (
     <React.Fragment>
-      <Modal title={'Add New Banner'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} /></Modal>
+      <Modal title={'Update Banner'} show={showModal} modalClosed={closeModalHandler}><Form url={bannerLink} clicked={saveItemHandler} /></Modal>
       <div className={classes.nestedPageBody}>
 
         {props.banners.map(banner => (
@@ -42,7 +40,7 @@ const manageBanners = (props) => {
               <img src={banner.link} alt="" />
             </div>
             <div className={classes.productLink}>{banner.link}</div>
-            <img onClick={modalHandler} src={editBtn} alt='btn' className={classes.smallBtn} />
+            <img onClick={() => { updateBannerHandler(banner._id, banner.link) }} src={editBtn} alt='btn' className={classes.smallBtn} />
             <img onClick={() => props.onDeleteBanner(banner._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
           </div>
         ))}
