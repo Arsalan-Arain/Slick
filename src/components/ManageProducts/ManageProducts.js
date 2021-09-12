@@ -7,18 +7,17 @@ import coin from '../../assets/coin.svg';
 import * as actionCreators from '../../redux/actions/index';
 import Modal from '../UI/Modal/Modal';
 import Form from '../UI/Form/FormUpdateProduct/FormUpdateProduct';
+import DeleteConfirm from '../UI/DeleteConfirm/DeleteConfirm';
 
 const manageProducts = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [showDelModal, setShowDelModal] = useState(false);
   const [productId, setProductId] = useState();
   const [productData, setProductData] = useState();
 
-  const modalHandler = () => {
-    setShowModal(true);
-  }
-
   const closeModalHandler = () => {
     setShowModal(false);
+    setShowDelModal(false);
   }
 
   const saveItemHandler = (productData) => {
@@ -34,12 +33,23 @@ const manageProducts = (props) => {
       price: price
     });
     setProductId(id);
-    modalHandler();
+    setShowModal(true);
+  }
+
+  const delConfirmHandler = () => {
+    props.onDeleteProduct(productId);
+    closeModalHandler();
+  }
+
+  const delProductHandler = (id) => {
+    setProductId(id);
+    setShowDelModal(true)
   }
 
   return (
     <React.Fragment>
       <Modal title={'Update Product'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} productData={productData} /></Modal>
+      <Modal title={'Delete Product'} show={showDelModal} modalClosed={closeModalHandler}><DeleteConfirm item={'Product'} clicked={delConfirmHandler} /></Modal>
       <div>
         <div className={classes.manageProductHeader} style={{ display: 'flex' }}>
           <div className={classes.headerSection} style={{ width: '9.77%' }}></div>
@@ -66,7 +76,7 @@ const manageProducts = (props) => {
                 </div>
                 <div className={classes.displayFlex}>
                   <img onClick={() => { updateProductHandler(product._id, product.image, product.name, product.category, product.price) }} src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
-                  <img onClick={() => props.onDeleteProduct(product._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
+                  <img onClick={() => delProductHandler(product._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
                 </div>
               </div>
             </div>
