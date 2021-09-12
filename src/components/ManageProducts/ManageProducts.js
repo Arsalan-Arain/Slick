@@ -16,13 +16,16 @@ const manageProducts = (props) => {
   const modalHandler = () => {
     setShowModal(true);
   }
+
   const closeModalHandler = () => {
     setShowModal(false);
   }
+
   const saveItemHandler = (productData) => {
     props.onUpdateProduct(productId, productData);
     closeModalHandler();
   }
+
   const updateProductHandler = (id, image, name, cat, price) => {
     setProductData({
       image: image,
@@ -36,7 +39,7 @@ const manageProducts = (props) => {
 
   return (
     <React.Fragment>
-      <Modal title={'Add New Banner'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} productData={productData} /></Modal>
+      <Modal title={'Update Product'} show={showModal} modalClosed={closeModalHandler}><Form clicked={saveItemHandler} productData={productData} /></Modal>
       <div>
         <div className={classes.manageProductHeader} style={{ display: 'flex' }}>
           <div className={classes.headerSection} style={{ width: '9.77%' }}></div>
@@ -88,4 +91,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(manageProducts);
-// export default manageProducts;

@@ -6,6 +6,7 @@ import deltBtn from '../../assets/delBtn.png';
 import * as actionCreators from '../../redux/actions/index';
 import Modal from '../UI/Modal/Modal';
 import Form from '../UI/Form/FormUpdateBanner/FormUpdateBanner';
+import linkIcon from '../../assets/linkIcon.svg'
 
 const manageBanners = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -39,7 +40,7 @@ const manageBanners = (props) => {
             <div className={classes.productImage}>
               <img src={banner.link} alt="" />
             </div>
-            <div className={classes.productLink}>{banner.link}</div>
+            <div className={classes.productLink}><img src={linkIcon} alt="" /><p style={{overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap'}}>{banner.link}</p></div>
             <img onClick={() => { updateBannerHandler(banner._id, banner.link) }} src={editBtn} alt='btn' className={classes.smallBtn} />
             <img onClick={() => props.onDeleteBanner(banner._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
           </div>

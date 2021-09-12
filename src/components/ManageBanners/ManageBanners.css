@@ -27,6 +27,8 @@
 }
 
 .productLink {
+  display: flex;
+  align-items: center;
   font-size: 0.875rem;
   color: #8a8fa1;
   height: 2.5rem;
@@ -35,30 +37,24 @@
   width: calc(100% - 15.75rem);
   padding: 0.625rem 1rem;
   box-sizing: border-box;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
+  overflow: hidden; */
+}
+.productLink img {
+  height: 1.125rem;
+  width: 1.125rem;
+  margin-right: 0.75rem;
+}
+.productLink p {
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .smallBtn {
   height: 2.5rem;
   width: 2.5rem;
   cursor: pointer;
 }
-
-/* .nestedPageBody::-webkit-scrollbar {
-  width: 6px;
-}
-
-.nestedPageBody::-webkit-scrollbar-track {
-  background: #fcf9f9;
-}
-
-.nestedPageBody::-webkit-scrollbar-thumb {
-  background: rgb(235, 234, 234);
-}
-
-.nestedPageBody::-webkit-scrollbar-thumb:hover {
-  background: rgb(192, 191, 191);
-} */
 
 /* manage product  */
 .manageProductHeader {
