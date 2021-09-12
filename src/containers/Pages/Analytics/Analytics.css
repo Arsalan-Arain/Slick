@@ -6,3 +6,12 @@
   padding: 2rem 2.5rem;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 500px) {
+  .Analytics {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 1.5rem 2rem
+  }
+}

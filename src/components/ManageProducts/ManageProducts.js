@@ -52,30 +52,30 @@ const manageProducts = (props) => {
       <Modal title={'Delete Product'} show={showDelModal} modalClosed={closeModalHandler}><DeleteConfirm item={'Product'} clicked={delConfirmHandler} /></Modal>
       <div>
         <div className={classes.manageProductHeader} style={{ display: 'flex' }}>
-          <div className={classes.headerSection} style={{ width: '9.77%' }}></div>
+          <div className={classes.headerSection} style={{ width: '10.77%' }}></div>
           <div className={classes.headerSection} style={{ width: '21.28%' }}>CATEGORY</div>
-          <div className={classes.headerSection} style={{ width: '36.76%' }}>PRODUCT NAME</div>
-          <div className={classes.headerSection} style={{ width: 'calc(100% - 67.81%)' }}>PRICE</div>
+          <div className={classes.headerSection.concat(" ", classes.productNameWidth)} >PRODUCT NAME</div>
+          <div className={classes.headerSection.concat(" ", classes.productPriceWidth)}>PRICE</div>
         </div>
 
         <div className={classes.nestedPageBodyProduct}>
 
           {props.products.map(product => (
             <div key={product._id} className={classes.productItem}>
-              <div style={{ width: '9.77%' }}>
+              <div style={{ width: '10.77%' }}>
                 <div className={classes.productShowcase}>
                   <img src={product.image} alt="" />
                 </div>
               </div>
               <div style={{ width: '21.28%' }}>{product.category.name}</div>
-              <div style={{ width: '36.76%', fontWeight: '600' }}>{product.name}</div>
-              <div className={classes.productPrice}>
+              <div className={classes.productNameWidth} style={{ fontWeight: '600' }}>{product.name}</div>
+              <div className={classes.productPrice.concat(" ", classes.productPriceWidth)}>
                 <div className={classes.displayFlex}>
-                  <img src={coin} alt='icon' style={{ marginRight: '0.375rem' }} />
+                  <img src={coin} alt='icon' className={classes.marginRightCoin} />
                   {product.price}
                 </div>
                 <div className={classes.displayFlex}>
-                  <img onClick={() => { updateProductHandler(product._id, product.image, product.name, product.category, product.price) }} src={editBtn} alt='btn' className={classes.smallBtn} style={{ marginRight: '1.2rem' }} />
+                  <img onClick={() => { updateProductHandler(product._id, product.image, product.name, product.category, product.price) }} src={editBtn} alt='btn' className={classes.smallBtn.concat(" ", classes.marginRight)} />
                   <img onClick={() => delProductHandler(product._id)} src={deltBtn} alt='btn' className={classes.smallBtn} />
                 </div>
               </div>

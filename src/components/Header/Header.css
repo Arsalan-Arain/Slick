@@ -33,10 +33,25 @@
   height: 3rem;
   width: 3rem;
   border-radius: 0.5rem;
-  background-color: #6F8AE8;
+  background-color: #6f8ae8;
 }
 
-.Notification:hover img{
+.Notification:hover img {
   transform: rotate(20deg);
   transition-duration: 0.5s;
+}
+
+.mobileView {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .Notification {
+    display: none;
+  }
+  .mobileView {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 }

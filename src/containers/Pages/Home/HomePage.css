@@ -34,3 +34,13 @@
     grid-template-columns: repeat(auto-fit, calc((100% - 45px) / 3));
   }
 }
+
+@media screen and (max-width: 500px) {
+  .Homepage {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    padding-bottom: calc(2rem + 55px);
+  }
+}
