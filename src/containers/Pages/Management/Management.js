@@ -34,11 +34,6 @@ const managementPage = (props) => {
     pageBody = <ManageProducts />
   }
 
-  const activePageStyle = {
-    fontWeight: '600',
-    color: '#6F8AE8'
-  }
-
   const modalAddBanner = <Modal title={'Add New Banner'} show={showModal} modalClosed={closeModalHandler}><FormBanner clicked={saveItemHandler} /></Modal>;
   const modalAddProduct = <Modal title={'Add New Product'} show={showModal} modalClosed={closeModalHandler}><FormProduct clicked={saveItemHandler} /></Modal>;
 

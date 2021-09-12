@@ -1,5 +1,4 @@
 import React from "react";
-import classes from './Slider.css';
 
 const slide = (props) => {
   return (

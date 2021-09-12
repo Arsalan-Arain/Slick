@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import Layout from './components/Layout/Layout';
-import HomePage from './containers/Pages/Home/HomePage';
-import ManagementPage from './containers/Pages/Management/Management';
-import AnalyticsPage from './containers/Pages/Analytics/Analytics';
-import ProductsPage from './containers/Pages/Products/Products';
 import { initBanners } from './redux/actions/banners';
 import { initProucts } from './redux/actions/products';
 import Loader from './components/UI/Loader/Loader';
+
+const Layout = React.lazy(() => import('./components/Layout/Layout'));
+const HomePage = React.lazy(() => import('./containers/Pages/Home/HomePage'));
+const ManagementPage = React.lazy(() => import('./containers/Pages/Management/Management'));
+const AnalyticsPage = React.lazy(() => import('./containers/Pages/Analytics/Analytics'));
+const ProductsPage = React.lazy(() => import('./containers/Pages/Products/Products'));
+
 
 const app = (props) => {
   useEffect(() => {

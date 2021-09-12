@@ -11,24 +11,9 @@ const slider = (props) => {
     setSlideIndex(index);
   }
 
-  const banners = [
-    {
-      _id: "b1",
-      link: "https://blog.creatopy.com/wp-content/uploads/2016/06/images-for-banner-ads.png"
-    },
-    {
-      _id: "b2",
-      link: "https://img.freepik.com/free-vector/abstract-website-banner-with-modern-shapes_1361-1738.jpg?size=626&ext=jpg"
-    },
-    {
-      _id: "b3",
-      link: "https://img.freepik.com/free-vector/stylish-glowing-digital-red-lines-banner_1017-23964.jpg?size=626&ext=jpg"
-    }
-  ];
-
   useEffect(() => {
     let timer = setInterval(() => {
-      if (slideIndex == props.banners.length - 1) { setSlideIndex(0) }
+      if (slideIndex === props.banners.length - 1) { setSlideIndex(0) }
       else { setSlideIndex(slideIndex + 1) }
     }, 4000);
     return () => { clearInterval(timer) }
