@@ -180,6 +180,12 @@
   .marginRightCoin {
     margin-right: 2px;
   }
+  .nestedPageBodyProduct {
+    height: calc(100vh - (17rem + 8.75rem));
+  }
+  .nestedPageBody {
+    height: calc(100vh - 24.5rem);
+  }
 }
 
 @media screen and (max-width: 380px) {

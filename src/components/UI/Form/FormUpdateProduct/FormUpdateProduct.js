@@ -50,7 +50,7 @@ const form = (props) => {
       <p className={classes.p}>PRODUCT NAME</p>
       <input value={name} id="name" required onChange={changeHandler} className={classes.input} type='text' placeholder='Write here...' /><br />
       <p className={classes.p}>PRICE</p>
-      <input value={price} id="price" required onChange={changeHandler} className={classes.input} type='number' placeholder='E.g. 4500' /><br />
+      <input max={99999} value={price} id="price" required onChange={changeHandler} className={classes.input} type='number' placeholder='E.g. 4500' /><br />
       <button className={classes.Button}>Save</button>
     </form>
   )
