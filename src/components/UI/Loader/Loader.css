@@ -1,14 +1,22 @@
+.loaderBody {
+  background: white;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
 .Loader,
 .Loader:before,
 .Loader:after {
-  background: #6F8AE8;
+  background: #6f8ae8;
   -webkit-animation: load1 1s infinite ease-in-out;
   animation: load1 1s infinite ease-in-out;
   width: 1rem;
   height: 4rem;
 }
 .Loader {
-  color: #6F8AE8;
+  color: #6f8ae8;
   text-indent: -9999rem;
   margin: 88px auto;
   position: relative;
@@ -23,7 +31,7 @@
 .Loader:after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
 }
 .Loader:before {
   left: -1.5rem;

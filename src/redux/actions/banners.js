@@ -31,7 +31,6 @@ export const putBanner = (bannerId, newLink) => {
   }
 }
 export const updateBanner = (bannerId, newLink) => {
-  // yahan par bhi ek obj bana sakte hain data bhejne k liye api pe
   return dispatch => {
     axios.put(`https://internship-slick-api.herokuapp.com/api/banners/${bannerId}`, { link: newLink })
       .then(response => {

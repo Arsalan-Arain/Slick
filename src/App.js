@@ -6,8 +6,9 @@ import HomePage from './containers/Pages/Home/HomePage';
 import ManagementPage from './containers/Pages/Management/Management';
 import AnalyticsPage from './containers/Pages/Analytics/Analytics';
 import ProductsPage from './containers/Pages/Products/Products';
-import {initBanners} from './redux/actions/banners';
-import {initProucts} from './redux/actions/products';
+import { initBanners } from './redux/actions/banners';
+import { initProucts } from './redux/actions/products';
+import Loader from './components/UI/Loader/Loader';
 
 const app = (props) => {
   useEffect(() => {
@@ -17,12 +18,14 @@ const app = (props) => {
 
   return (
     <BrowserRouter>
-      <Layout>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/management" component={ManagementPage} />
-        <Route path="/products" component={ProductsPage} />
-        <Route path="/analytics" component={AnalyticsPage} />
-      </Layout>
+      <React.Suspense fallback={<Loader />}>
+        <Layout>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/management" component={ManagementPage} />
+          <Route path="/products" component={ProductsPage} />
+          <Route path="/analytics" component={AnalyticsPage} />
+        </Layout>
+      </React.Suspense>
     </BrowserRouter>
   );
 }

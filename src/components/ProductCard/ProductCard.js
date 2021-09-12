@@ -3,7 +3,6 @@ import classes from './ProductCard.css';
 import coinIcon from '../../assets/coin.svg';
 
 const productCard = (props) => {
-  // const url = "https://post.healthline.com/wp-content/uploads/2020/09/health-benefits-of-apples-1200x628-facebook-1200x628.jpg";
   return (
     <div className={classes.Card}>
       <div className={classes.productShowcase} style={{ backgroundImage: `url(${props.image})` }}>
