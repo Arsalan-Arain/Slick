@@ -1,0 +1,8 @@
+export const ADD_BANNER = "ADD_BANNER";
+export const DELETE_BANNER = "DELETE_BANNER";
+export const UPDATE_BANNER = "UPDATE_BANNER";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+export const SET_BANNERS = "SET_BANNERS";

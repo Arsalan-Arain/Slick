@@ -12,7 +12,7 @@
   position: relative;
   border: none;
   border-radius: 0.625rem 0.625rem 0 0;
-  background-image: url("https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg");
+  background-color: darkgray;
   background-size: cover;
   background-repeat: no-repeat;
 }

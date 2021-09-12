@@ -12,14 +12,11 @@ const homePage = (props) => {
       <div className={classes.homeContainer}>
         <Slider />
         <h2>Listed Products</h2>
-
+        
         <div className={classes.Products}>
-          <ProductCard name={"Overcome Basic Sweatshirt"} category={"CASUAL"} price={"3222"} />
-          <ProductCard name={"Overcome Purple"} category={"OUTDOOR"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"PARTY"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
-          <ProductCard name={"Apple"} category={"Food"} price={"2000"} />
+          {props.products.map(product => (
+            <ProductCard key={product._id} name={product.name} category={product.category.name} price={product.price} image={product.image} />
+          ))}
         </div>
       </div>
     </div>
@@ -28,8 +25,7 @@ const homePage = (props) => {
 
 const mapStateToProps = state => {
   return {
-    banners: state.banners, // isse access kerne k liye --- props.banner --- for class-based: this.props.banners
-    producs: state.producs
+    products: state.products
   }
 }
 

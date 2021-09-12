@@ -2,7 +2,6 @@
   width: calc(100% - 18.75%);
   min-height: 100vh;
   background-color: #f5f8fc;
-  /* background-color: #F5F8FC; */
   margin-left: 18.75%;
   padding: 2rem 2.5rem;
   box-sizing: border-box;
@@ -80,4 +79,34 @@
 
 .transparentBg {
   background: transparent;
+}
+
+@media screen and (max-width: 500px) {
+  .Management {
+    width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .pageBody {
+    background-color: #ffffff;
+    height: calc(100vh - (9.5rem + 45px + 50px));
+    margin-top: 1rem;
+    border-radius: 0.625rem;
+    padding: 14px;
+    box-sizing: border-box;
+  }
+
+  .marginLeft {
+    margin-left: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .togglePageButton {
+    width: 55px;
+    text-align: center;
+  }
 }
