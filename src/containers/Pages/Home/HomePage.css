@@ -43,4 +43,8 @@
     padding: 1.5rem 2rem;
     padding-bottom: calc(2rem + 55px);
   }
+
+  .Products {
+    grid-template-columns: repeat(auto-fit, calc((100% - 25px)/2));
+  }
 }
