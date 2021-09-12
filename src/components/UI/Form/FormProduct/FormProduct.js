@@ -21,6 +21,7 @@ const form = (props) => {
       case 'price':
         setPrice(event.target.value)
         break;
+      default: break;
     }
   }
 

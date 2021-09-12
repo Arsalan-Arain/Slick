@@ -1,15 +1,12 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import Loader from '../UI/Loader/Loader';
 
 const layout = (props) => (
   <React.Fragment>
-    <React.Suspense fallback={<Loader />}>
-      <Sidebar />
-      <main>
-        {props.children}
-      </main>
-    </React.Suspense>
+    <Sidebar />
+    <main>
+      {props.children}
+    </main>
   </React.Fragment>
 )
 

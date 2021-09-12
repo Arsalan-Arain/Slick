@@ -34,7 +34,6 @@ export const updateProduct = (productId, data) => {
   return dispatch => {
     axios.put(`https://internship-slick-api.herokuapp.com/api/products/${productId}`, data)
       .then(response => {
-        console.log('response...: ', response.data.data)
         dispatch(putProduct(productId, response.data.data))
       })
       .catch(err => {
